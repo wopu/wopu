@@ -1,0 +1,19 @@
+h1 Listing available_tags
+
+table
+  tr
+    th Name
+    th
+    th
+    th
+
+  - @available_tags.each do |available_tag|
+    tr
+      td = available_tag.name
+      td = link_to 'Show', available_tag
+      td = link_to 'Edit', edit_available_tag_path(available_tag)
+      td = link_to 'Destroy', available_tag, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Available tag', new_available_tag_path
