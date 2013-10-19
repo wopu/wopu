@@ -5,6 +5,7 @@ p#notice = notice
 
 .row
   .col-md-6
+    = image_tag @foundation.logo.thumb
     h1= @foundation.name
     = link_to 'Edit', edit_foundation_path(@foundation)
     br

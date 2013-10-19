@@ -9,6 +9,8 @@ class Foundation
   field :certified, type: Boolean, default: false
   field :representative
 
+  mount_uploader :logo, ImageUploader
+
   embeds_one :contact_info
 
   accepts_nested_attributes_for :contact_info
