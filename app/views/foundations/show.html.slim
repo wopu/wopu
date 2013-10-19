@@ -5,9 +5,9 @@ p#notice = notice
 
 .row
   .col-md-6
-    = image_tag @foundation.logo.thumb
     h1= @foundation.name
     = link_to 'Edit', edit_foundation_path(@foundation)
+    = image_tag @foundation.logo.thumb
     br
     | Mission:
     = @foundation.mission
@@ -15,8 +15,14 @@ p#notice = notice
     | Population:
     = @foundation.population
     br
+    | Date of foundation:
+    = @foundation.start_date
+    br
   .col-md-6
     h2 Contact info
+    | Representative:
+    = @foundation.contact_info.representative
+    br
     | Phone:
     = @foundation.contact_info.phone
     br

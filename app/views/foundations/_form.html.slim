@@ -13,12 +13,21 @@
   .form-group
     label Population:
     = f.text_area :population, rows: 2, class: 'form-control'
+  .form-group
+    label Date of foundation:
+    = f.text_area :start_date, rows: 2, class: 'form-control'
 
   h2 Contact info
   = f.fields_for :contact_info do |builder|
     .form-group
+      label Representative:
+      = builder.text_field :representative, class: 'form-control'
+    .form-group
+      label Email:
+      = builder.email_field :email, class: 'form-control'
+    .form-group
       label Phone:
-      = builder.text_field :phone, class: 'form-control'
+      = builder.phone_field :phone, class: 'form-control'
     .form-group
       label Address:
       = builder.text_field :address, class: 'form-control'

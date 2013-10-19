@@ -7,7 +7,6 @@ class Foundation
   field :population
   field :start_date, type: DateTime
   field :certified, type: Boolean, default: false
-  field :representative
 
   mount_uploader :logo, ImageUploader
 
