@@ -14,8 +14,11 @@ class Foundation
 
   accepts_nested_attributes_for :contact_info
 
+  belongs_to :category
+
   has_many :needs
   has_many :helps, as: :helper
 
   validates_presence_of :name
+
 end

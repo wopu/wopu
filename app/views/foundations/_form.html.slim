@@ -5,6 +5,10 @@
     label Name:
     = f.text_field :name, class: 'form-control'
   .form-group
+    label Category:
+    = f.select :category_id, Category.all.map{|c| [c.name, c.id]}, {},
+      class: 'form-control'
+  .form-group
     label Logo:
     = f.file_field :logo, class: 'form-control'
   .form-group
