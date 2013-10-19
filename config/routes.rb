@@ -12,5 +12,6 @@ Wopu::Application.routes.draw do
 
   resources :foundations
 
+  get 'admin' => 'admin#index'
   root 'home#index'
 end

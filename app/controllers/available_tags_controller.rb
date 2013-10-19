@@ -1,4 +1,5 @@
-class AvailableTagsController < ApplicationController
+class AvailableTagsController < AdminController
+
   before_action :set_available_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /available_tags

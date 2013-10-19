@@ -10,21 +10,13 @@ html
 
     = csrf_meta_tags
   body
-    .container
-      h1 Wopu
+    h1 Wopu
 
-      = link_to "Admin", admin_path
-      br
-      = link_to "Register foundation", new_foundation_path
-      br
-      = link_to "Register person", new_user_path
-      br
-      = link_to "Foundations", foundations_path
-      br
-      = link_to "People", users_path
-      br
-      = link_to "Needs", needs_path
-      br
-      = link_to "Helps", helps_path
+    = link_to "Home", root_path
+    br
+    = link_to "Available Tags", available_tags_path
+    br
+    = link_to "New Tag", new_available_tag_path
 
-      = yield
+    = yield
+
