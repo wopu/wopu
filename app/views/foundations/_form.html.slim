@@ -5,20 +5,23 @@
       ul
         - @foundation.errors.full_messages.each do |message|
           li = message
-  | Name:
-  = f.text_field :name
-  br
-  | Mission:
-  = f.text_area :mission, rows: 2
-  br
-  | Population:
-  = f.text_area :population, rows: 2
+  .form-group
+    label Name:
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    label Mission:
+    = f.text_area :mission, rows: 2, class: 'form-control'
+  .form-group
+    label Population:
+    = f.text_area :population, rows: 2, class: 'form-control'
+
   h2 Contact info
   = f.fields_for :contact_info do |builder|
-    | Phone:
-    = builder.text_field :phone
-    br
-    | Address:
-    = builder.text_field :address
+    .form-group
+      label Phone:
+      = builder.text_field :phone, class: 'form-control'
+    .form-group
+      label Address:
+      = builder.text_field :address, class: 'form-control'
 
-  .actions = f.submit 'Save'
+  = f.submit 'Save', class: 'btn btn-primary'
