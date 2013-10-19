@@ -1,10 +1,5 @@
 = form_for @help do |f|
-  - if @help.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@help.errors.count, "error")} prohibited this help from being saved:"
-      ul
-        - @help.errors.full_messages.each do |message|
-          li = message
+  = error_messages(@help)
 
   .form-group
     = f.label :description

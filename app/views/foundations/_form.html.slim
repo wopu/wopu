@@ -1,10 +1,6 @@
 = form_for @foundation do |f|
-  - if @foundation.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@foundation.errors.count, "error")} prohibited this foundation from being saved:"
-      ul
-        - @foundation.errors.full_messages.each do |message|
-          li = message
+  = error_messages(@foundation)
+
   .form-group
     label Name:
     = f.text_field :name, class: 'form-control'
