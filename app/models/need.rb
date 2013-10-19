@@ -5,7 +5,7 @@ class Need
   field :title
   field :purpose # What for?
   field :description, type: String # The petition
-  field :status # Open, close
+  field :open, type: Boolean, default: true
   field :beneficiary, type: Integer
   field :deadline, type: DateTime
    # See what happened after the need was marked as close? Show results?

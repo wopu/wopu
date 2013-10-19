@@ -3,7 +3,8 @@ class Help
   include Mongoid::Timestamps
 
   field :description, type: String
-  field :status # Pending, accepted, requested, verified/closed/received
+  field :accepted, type: Boolean, default: nil # nil = Pending
+  field :suggested, type: Boolean, default: false
 
   belongs_to :need
   belongs_to :helper, polymorphic: true
