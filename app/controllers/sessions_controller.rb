@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     if @user = User.sign_in(session_params)
       session[:id] = @user.id
-      redirect_to after_sign_in_path
+      redirect_to request.referrer, notice: 'Signed in!'
     else
       redirect_to root_path, alert: 'Wrong email or password.'
     end
