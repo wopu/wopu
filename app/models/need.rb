@@ -1,4 +1,4 @@
-class Help
+class Need
   include Mongoid::Document
   include Mongoid::Timestamps
 

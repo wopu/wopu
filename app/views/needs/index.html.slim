@@ -1,0 +1,19 @@
+h1 Listing needs
+
+table
+  tr
+    th Description
+    th
+    th
+    th
+
+  - @needs.each do |need|
+    tr
+      td = need.description
+      td = link_to 'Show', need
+      td = link_to 'Edit', edit_need_path(need)
+      td = link_to 'Destroy', need, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Need', new_need_path
