@@ -7,13 +7,13 @@ class Need
   field :description, type: String # The petition
   field :status # Open, close
   field :beneficiary, type: Integer
-  # field :category ??? Money, time. knowledge, food
-  # field :recurrent ??? Always exists? e.g. Money
-  # See what happened after the need was marked as close? Show results?
-  # May have a deadline?
+  field :deadline, type: DateTime
+   # See what happened after the need was marked as close? Show results?
+   #has_many :pictures
 
   belongs_to :foundation
   has_many :helps
+  has_many :tags, as: :thing
 
   validates_presence_of :description
 end
