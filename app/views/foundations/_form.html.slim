@@ -8,10 +8,17 @@
   | Name:
   = f.text_field :name
   br
-  | Mission
+  | Mission:
   = f.text_area :mission, rows: 2
   br
-  | Population
+  | Population:
   = f.text_area :population, rows: 2
+  h2 Contact info
+  = f.fields_for :contact_info do |builder|
+    | Phone:
+    = builder.text_field :phone
+    br
+    | Address:
+    = builder.text_field :address
 
   .actions = f.submit 'Save'

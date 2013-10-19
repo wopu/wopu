@@ -9,7 +9,15 @@ br
 | Population:
 = @foundation.population
 br
-  
+
+h2 Contact info
+| Phone:
+= @foundation.contact_info.phone
+br
+| Address:
+= @foundation.contact_info.address
+br
+
 = link_to 'Edit', edit_foundation_path(@foundation)
 '|
 = link_to 'Back', foundations_path

@@ -10,6 +10,7 @@ class FoundationsController < ApplicationController
 
   def new
     @foundation = Foundation.new
+    @foundation.build_contact_info
   end
 
   def edit
@@ -47,6 +48,6 @@ class FoundationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def foundation_params
-      params.require(:foundation).permit(:name, :mission, :population)
+      params.require(:foundation).permit(:name, :mission, :population, contact_info_attributes: [:phone, :address])
     end
 end

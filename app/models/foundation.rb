@@ -7,4 +7,6 @@ class Foundation
   field :population
 
   embeds_one :contact_info
+
+  accepts_nested_attributes_for :contact_info
 end
