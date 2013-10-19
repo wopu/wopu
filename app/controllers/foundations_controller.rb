@@ -18,35 +18,24 @@ class FoundationsController < ApplicationController
   def create
     @foundation = Foundation.new(foundation_params)
 
-    respond_to do |format|
-      if @foundation.save
-        format.html { redirect_to @foundation, notice: 'Foundation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @foundation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @foundation.errors, status: :unprocessable_entity }
-      end
+    if @foundation.save
+      redirect_to @foundation, notice: 'Foundation was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @foundation.update(foundation_params)
-        format.html { redirect_to @foundation, notice: 'Foundation was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @foundation.errors, status: :unprocessable_entity }
-      end
+    if @foundation.update(foundation_params)
+      redirect_to @foundation, notice: 'Foundation was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
     @foundation.destroy
-    respond_to do |format|
-      format.html { redirect_to foundations_url }
-      format.json { head :no_content }
-    end
+    redirect_to foundations_url
   end
 
   private
