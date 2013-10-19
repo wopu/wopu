@@ -1,4 +1,7 @@
 p#notice = notice
+.row
+  h2 Actions
+  = link_to 'Needs', needs_path
 
 .row
   .col-md-6
@@ -18,6 +21,8 @@ p#notice = notice
     br
     | Address:
     = @foundation.contact_info.address
+    br
+    = mail_to @foundation.contact_info.email, 'Contact'
 
 .row
   h2 Needs
@@ -26,10 +31,14 @@ p#notice = notice
       li
         = need.description
         = link_to 'Help', '#'
+        = link_to 'Mark solved', '#'
         ul
+          label Helping
+          br
           - need.helps.each do |help|
             = help.helper.name
             br
             = help.description
             = link_to 'Accept', '#'
             = link_to 'Ignore', '#'
+            = link_to 'Contact', '#'

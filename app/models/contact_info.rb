@@ -4,6 +4,7 @@ class ContactInfo
 
   field :phone
   field :address
+  field :email
 
   embedded_in :foundation
 end
