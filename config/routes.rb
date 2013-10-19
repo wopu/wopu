@@ -11,6 +11,7 @@ Wopu::Application.routes.draw do
   resources :users
 
   resources :sessions
+  delete 'sessions', to: 'sessions#destroy'
 
   resources :foundations
 
