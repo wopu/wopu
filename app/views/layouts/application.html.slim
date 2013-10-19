@@ -10,4 +10,16 @@ html
 
     = csrf_meta_tags
   body
+    h1 Wopu
+
+    = link_to "Register foundation", new_foundation_path
+    br
+    = link_to "Register person", new_user_path
+    br
+    = link_to "Foundations", foundations_path
+    br
+    = link_to "People", users_path
+    br
+    = link_to "Needs", '#'
+
     = yield
