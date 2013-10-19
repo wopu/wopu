@@ -39,10 +39,13 @@ LINODE_SERVER_HOSTNAME = '50.116.4.94'
 
 # General Options
 
+set :default_shell, "/bin/bash -l"
+default_run_options[:pty] = true
+
 set :bundle_flags,               "--deployment"
 
-set :application,                "railsrumble"
-set :deploy_to,                  "/var/www/apps/railsrumble"
+set :application,                "wopu"
+set :deploy_to,                  "/var/www/apps/wopu"
 set :normalize_asset_timestamps, false
 set :rails_env,                  "production"
 
