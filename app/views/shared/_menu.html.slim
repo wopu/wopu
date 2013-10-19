@@ -1,0 +1,22 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+        span class="icon-bar"
+        span class="icon-bar"
+        span class="icon-bar"
+      = link_to "WOPU", root_path, class: "navbar-brand"
+    .navbar-collapse.collapse
+      ul class="nav navbar-nav"
+        li
+          = link_to "Register foundation", new_foundation_path
+        li
+          = link_to "Register person", new_user_path
+        li
+          = link_to "Foundations", foundations_path
+        li
+          = link_to "People", users_path
+        li
+          = link_to "Helps", helps_path
+        li
+          = link_to "Admin", admin_path

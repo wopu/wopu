@@ -10,23 +10,9 @@ html
 
     = csrf_meta_tags
   body
-    .container
-      h1 = link_to "WOPU", root_path
+    = render 'shared/menu'
 
-      = link_to "Admin", admin_path
-      br
-      = link_to "Register foundation", new_foundation_path
-      br
-      = link_to "Register person", new_user_path
-      br
-      = link_to "Foundations", foundations_path
-      br
-      = link_to "People", users_path
-      br
-      = link_to "Helps", helps_path
-      br
-
+    .container.main
       = render 'shared/flash'
-      br
-
       = yield
+      = render 'shared/footer'
