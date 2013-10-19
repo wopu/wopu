@@ -1,23 +1,27 @@
 p#notice = notice
 
-| Name:
-= @foundation.name
-br
-| Mission:
-= @foundation.mission
-br
-| Population:
-= @foundation.population
-br
+.row
+  .col-md-6
+    h1= @foundation.name
+    = link_to 'Edit', edit_foundation_path(@foundation)
+    br
+    | Mission:
+    = @foundation.mission
+    br
+    | Population:
+    = @foundation.population
+    br
+  .col-md-6
+    h2 Contact info
+    | Phone:
+    = @foundation.contact_info.phone
+    br
+    | Address:
+    = @foundation.contact_info.address
 
-h2 Contact info
-| Phone:
-= @foundation.contact_info.phone
-br
-| Address:
-= @foundation.contact_info.address
-br
-
-= link_to 'Edit', edit_foundation_path(@foundation)
-'|
-= link_to 'Back', foundations_path
+.row
+  h2 Needs
+  ul
+    - @foundation.needs.each do |need|
+      li
+        = need.description
