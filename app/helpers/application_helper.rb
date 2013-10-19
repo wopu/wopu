@@ -6,7 +6,8 @@ module ApplicationHelper
     messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
 
     html = <<-HTML
-      <div class="error-explanation">
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <ul>#{messages}</ul>
       </div>
     HTML

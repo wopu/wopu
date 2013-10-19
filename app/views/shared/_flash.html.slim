@@ -1,5 +1,5 @@
 - [:notice, :error, :alert].each do |level|
   - unless flash[level].blank?
-    div class="alert alert-#{flash_class(level)}"
-      a class="close" href="#" ×
+    div class="alert alert-#{flash_class(level)} alert-dismissable"
+      a class="close" href="#" data-dismiss="alert" ×
       p = flash[level]

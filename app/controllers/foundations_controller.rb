@@ -11,6 +11,7 @@ class FoundationsController < ApplicationController
   def new
     @foundation = Foundation.new
     @foundation.build_contact_info
+    @foundation.build_user
   end
 
   def edit
@@ -50,6 +51,6 @@ class FoundationsController < ApplicationController
     def foundation_params
       params.require(:foundation).permit(:name, :logo, :mission, :population,
        :start_date, :category_id, contact_info_attributes: [:email, :phone, :address,
-       :representative])
+       :representative], user_attributes: [:email, :password ])
     end
 end
