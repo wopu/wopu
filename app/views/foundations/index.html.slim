@@ -1,5 +1,8 @@
 h1 Foundations
 
+- if current_user
+  = link_to 'New Foundation', new_foundation_path
+
 table
   tr
     th
@@ -9,11 +12,7 @@ table
 
   - @foundations.each do |foundation|
     tr
-      th= image_tag foundation.logo.thumb
+      td= image_tag foundation.logo.thumb
       td= link_to foundation.name, foundation
       td= foundation.mission
       td= foundation.population
-
-br
-
-= link_to 'New Foundation', new_foundation_path
