@@ -12,4 +12,6 @@ class Foundation
 
   has_many :needs
   has_many :helps, as: :helper
+
+  validates_presence_of :name
 end

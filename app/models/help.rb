@@ -6,4 +6,6 @@ class Help
 
   belongs_to :need
   belongs_to :helper, polymorphic: true
+
+  validates_presence_of :description
 end

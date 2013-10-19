@@ -7,4 +7,6 @@ class User
   field :password, type: String
 
   has_many :helps, as: :helper
+
+  validates_presence_of :name
 end

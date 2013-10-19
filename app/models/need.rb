@@ -6,4 +6,6 @@ class Need
 
   belongs_to :foundation
   has_many :helps
+
+  validates_presence_of :description
 end
