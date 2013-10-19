@@ -18,35 +18,25 @@ class HelpsController < ApplicationController
   def create
     @help = Help.new(help_params)
 
-    respond_to do |format|
-      if @help.save
-        format.html { redirect_to @help, notice: 'Help was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @help }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @help.errors, status: :unprocessable_entity }
-      end
+    if @help.save
+      redirect_to @help, notice: 'Help was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @help.update(help_params)
-        format.html { redirect_to @help, notice: 'Help was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @help.errors, status: :unprocessable_entity }
-      end
+    if @help.update(help_params)
+      redirect_to @help, notice: 'Help was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
     @help.destroy
-    respond_to do |format|
-      format.html { redirect_to helps_url }
-      format.json { head :no_content }
-    end
+
+    redirect_to helps_url
   end
 
   private
