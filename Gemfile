@@ -41,3 +41,4 @@ gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
 gem 'therubyracer'
+gem 'quiet_assets'
