@@ -9,4 +9,6 @@ class User
   has_many :helps, as: :helper
 
   validates_presence_of :name
+
+  def self.sign_in(params); where(params).first end
 end

@@ -1,5 +1,5 @@
-= form_for @user || :user do |f|
-  = error_messages(f.object)
+= form_for @user || :user, url: sessions_path do |f|
+  = render 'shared/flash'
 
   .form-group
     = f.label :email
