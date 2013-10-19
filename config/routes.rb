@@ -1,6 +1,6 @@
 Wopu::Application.routes.draw do
 
-  resource :foundations
+  resources :foundations
 
   root 'home#index'
 end

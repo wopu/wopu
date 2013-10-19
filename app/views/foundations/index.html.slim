@@ -1,2 +1,17 @@
-= @foundations.each do |f|
-  = f.name
+h1 Listing foundations
+
+table
+  tr
+    th
+    th
+    th
+
+  - @foundations.each do |foundation|
+    tr
+      td = link_to 'Show', foundation
+      td = link_to 'Edit', edit_foundation_path(foundation)
+      td = link_to 'Destroy', foundation, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Foundation', new_foundation_path
