@@ -5,6 +5,9 @@ class Foundation
   field :name
   field :mission
   field :population
+  field :start_date, type: DateTime
+  field :certified, type: Boolean, default: false
+  field :representative
 
   embeds_one :contact_info
 
