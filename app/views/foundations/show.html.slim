@@ -26,4 +26,10 @@ p#notice = notice
       li
         = need.description
         = link_to 'Help', '#'
-        
+        ul
+          - need.helps.each do |help|
+            = help.helper.name
+            br
+            = help.description
+            = link_to 'Accept', '#'
+            = link_to 'Ignore', '#'
