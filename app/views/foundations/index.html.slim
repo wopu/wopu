@@ -2,12 +2,18 @@ h1 Listing foundations
 
 table
   tr
+    th Name
+    th Mission
+    th Population
     th
     th
     th
 
   - @foundations.each do |foundation|
     tr
+      td= foundation.name
+      td= foundation.mission
+      td= foundation.population
       td = link_to 'Show', foundation
       td = link_to 'Edit', edit_foundation_path(foundation)
       td = link_to 'Destroy', foundation, :confirm => 'Are you sure?', :method => :delete

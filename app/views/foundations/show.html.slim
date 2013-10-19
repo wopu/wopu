@@ -1,6 +1,15 @@
 p#notice = notice
 
-
+| Name:
+= @foundation.name
+br
+| Mission:
+= @foundation.mission
+br
+| Population:
+= @foundation.population
+br
+  
 = link_to 'Edit', edit_foundation_path(@foundation)
 '|
 = link_to 'Back', foundations_path

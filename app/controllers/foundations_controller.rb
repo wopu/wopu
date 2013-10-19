@@ -35,6 +35,7 @@ class FoundationsController < ApplicationController
 
   def destroy
     @foundation.destroy
+
     redirect_to foundations_url
   end
 
@@ -46,6 +47,6 @@ class FoundationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def foundation_params
-      params[:foundation]
+      params.require(:foundation).permit(:name, :mission, :population)
     end
 end

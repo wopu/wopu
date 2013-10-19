@@ -5,5 +5,13 @@
       ul
         - @foundation.errors.full_messages.each do |message|
           li = message
+  | Name:
+  = f.text_field :name
+  br
+  | Mission
+  = f.text_area :mission, rows: 2
+  br
+  | Population
+  = f.text_area :population, rows: 2
 
   .actions = f.submit 'Save'
