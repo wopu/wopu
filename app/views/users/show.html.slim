@@ -1,6 +1,11 @@
 p#notice = notice
 
 p
+  = image_tag @user.avatar.thumb
+p
+  - if @user == current_user
+    = link_to 'Edit', edit_user_path(@user)
+p
   strong Name:
   = @user.name
 p
@@ -10,6 +15,3 @@ p
   strong Password:
   = @user.password
 
-= link_to 'Edit', edit_user_path(@user)
-'|
-= link_to 'Back', users_path
