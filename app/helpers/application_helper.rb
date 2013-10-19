@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def error_messages(resource)
-    return unless resource.errors.any?
+    return unless resource and resource.errors.any?
 
     messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
 
