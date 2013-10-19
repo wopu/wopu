@@ -15,7 +15,7 @@
     = f.text_area :population, rows: 2, class: 'form-control'
   .form-group
     label Date of foundation:
-    = f.text_area :start_date, rows: 2, class: 'form-control'
+    = f.text_field :start_date, class: 'form-control'
 
   h2 Contact info
   = f.fields_for :contact_info do |builder|

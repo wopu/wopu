@@ -2,7 +2,7 @@ class NeedsController < ApplicationController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
 
   def index
-    @needs = Need.all
+    @foundation = Foundation.find(params[:foundation_id])
   end
 
   def show

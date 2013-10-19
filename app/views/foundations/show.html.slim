@@ -1,7 +1,7 @@
 p#notice = notice
 .row
   h2 Actions
-  = link_to 'Needs', needs_path
+  = link_to 'Needs', foundation_needs_path(@foundation)
 
 .row
   .col-md-6
@@ -29,7 +29,7 @@ p#notice = notice
     | Address:
     = @foundation.contact_info.address
     br
-    = mail_to @foundation.contact_info.email, 'Contact'
+    = mail_to @foundation.contact_info.email, 'Contact', target: '_blank'
 
 .row
   h2 Needs
