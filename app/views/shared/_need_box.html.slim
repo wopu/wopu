@@ -1,0 +1,25 @@
+h4= need.title
+= link_to 'Help', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
+  'data-toggle' => "modal", 'data-selector' => 'need-btn'
+- if can_manage? @foundation
+  = link_to 'Mark solved', '#', class: 'btn btn-success'
+br
+= need.purpose
+br
+= need.description
+br
+= need.beneficiary
+br
+= need.deadline
+
+ul
+  label Helping
+  br
+  - need.helps.each do |help|
+    = help.helper.name
+    br
+    = help.description
+    - if can_manage? @foundation
+      = link_to 'Accept', '#', class: 'btn btn-primary'
+      = link_to 'Ignore', '#', class: 'btn btn-default'
+      = mail_to help.helper.email, 'Contact'
