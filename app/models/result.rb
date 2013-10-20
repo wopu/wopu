@@ -5,4 +5,9 @@ class Result
 
   belongs_to :need
 
+  after_save :solve_need
+
+  def solve_need
+    need.solve!
+  end
 end
