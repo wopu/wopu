@@ -9,5 +9,7 @@ class Help
   belongs_to :need
   belongs_to :helper, polymorphic: true
 
-  validates_presence_of :description
+  validates_presence_of :description, :helper
+
+  scope :available, ->{ where(suggested: true, accepted: nil) }
 end

@@ -6,8 +6,12 @@ p#notice = notice
 .row
   .col-md-6
     h1= @foundation.name
-    = link_to 'Edit', edit_foundation_path(@foundation)
+    - if can_manage? @foundation
+      = link_to 'Edit', edit_foundation_path(@foundation)
     = image_tag @foundation.logo.thumb
+    br
+    | Tags:
+    = @foundation.tags
     br
     | Category:
     = @foundation.category_name
@@ -41,7 +45,8 @@ p#notice = notice
       li
         = need.description
         = link_to 'Help', '#'
-        = link_to 'Mark solved', '#'
+        - if can_manage? @foundation
+          = link_to 'Mark solved', '#'
         ul
           label Helping
           br
@@ -49,6 +54,7 @@ p#notice = notice
             = help.helper.name
             br
             = help.description
-            = link_to 'Accept', '#'
-            = link_to 'Ignore', '#'
-            = link_to 'Contact', '#'
+            - if can_manage? @foundation
+              = link_to 'Accept', '#'
+              = link_to 'Ignore', '#'
+              = link_to 'Contact', '#'

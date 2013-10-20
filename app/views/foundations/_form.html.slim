@@ -1,9 +1,13 @@
-= form_for @foundation do |f|
+= form_for @foundation, html: { id: :foundation_form } do |f|
   = error_messages(@foundation)
 
   .form-group
     label Name:
     = f.text_field :name, class: 'form-control'
+  .form-group
+    label Tags:
+    = f.select :available_tag_ids, AvailableTag.all.map{|c| [c.name, c.id]}, {},
+      class: 'form-control chosen', multiple: true
   .form-group
     label Category:
     = f.select :category_id, Category.all.map{|c| [c.name, c.id]}, {},
