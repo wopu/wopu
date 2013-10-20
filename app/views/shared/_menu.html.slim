@@ -21,6 +21,8 @@
         li
           - if current_user
             = link_to 'Sign out', sessions_path, method: :delete
-          - else
+          /- else
             /= render 'sign_in'
-            = render 'shared/search'
+      ul class="nav navbar-nav navbar-right"
+        li
+          = render 'shared/search'

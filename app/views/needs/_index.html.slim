@@ -1,8 +1,9 @@
-- title ||= 'Needs'
-h2 = title
-- needs.each do |need_subgroup|
-  .row
-    - need_subgroup.each do |need|
-      - if need
-        .col-md-6
-          = render 'needs/box', need: need
+- if needs.any?
+  - title ||= 'Needs'
+  h2 = title
+  - needs.each do |need_subgroup|
+    .row
+      - need_subgroup.each do |need|
+        - if need
+          .col-md-6
+            = render 'needs/box', need: need
