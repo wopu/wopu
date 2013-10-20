@@ -1,13 +1,17 @@
-h1 My needs
+h1
+  | My needs
+= link_to new_foundation_need_path(@foundation), class: 'btn btn-primary', style: 'margin-top: 15px' do
+  span.glyphicon.glyphicon-plus
+  | New Need
 
 table
   tr
+    th Status
     th Title
     th Purpose
     th Description
     th Beneficiaries
     th Deadline
-    th Status
     th
     th
     th
@@ -23,7 +27,3 @@ table
       td = link_to 'Show', foundation_need_path(@foundation, need)
       td = link_to 'Edit', edit_foundation_need_path(@foundation, need)
       td = link_to 'Destroy', foundation_need_path(@foundation, need), :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Need', new_foundation_need_path(@foundation)
