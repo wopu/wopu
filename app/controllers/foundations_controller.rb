@@ -51,7 +51,7 @@ class FoundationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def foundation_params
       #params.require(:foundation).permit(:name, :logo, :mission, :population,
-       #:start_date, :category_id, contact_info_attributes: [:email, :phone, :address,
+       #:start_date, :category_id, :available_tag_ids, contact_info_attributes: [:email, :phone, :address,
        #:representative], user_attributes: [:email, :password ])
       params.require(:foundation).permit!
     end
