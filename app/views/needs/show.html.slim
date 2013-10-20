@@ -1,9 +1,20 @@
-p#notice = notice
-
+h1= @need.title
+p
+  strong Status:
+  = @need.status
+p
+  strong Purpose:
+  = @need.purpose
 p
   strong Description:
   = @need.description
+p
+  strong Beneficiaries:
+  = @need.beneficiary
+p
+  strong Deadline:
+  = @need.deadline
 
-= link_to 'Edit', edit_need_path(@need)
+= link_to 'Edit', edit_foundation_need_path(@need.foundation, @need)
 '|
-= link_to 'Back', needs_path
+= link_to 'Back', foundation_needs_path(@need.foundation, @need)

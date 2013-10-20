@@ -8,6 +8,8 @@ class Foundation
   field :population
   field :start_date, type: DateTime
   field :certified, type: Boolean, default: false
+  field :country
+  field :city
 
   mount_uploader :logo, ImageUploader
 
@@ -27,17 +29,26 @@ class Foundation
 
   attr_accessor :available_tag_ids
 
+  after_initialize :set_available_tag_ids
   after_validation :handle_post_validation
   after_save :recreate_tags
 
+  scope :others, ->(user){ ne(user_id: user.id) }
+
+  # Show selected tags when editing foundation
+  def set_available_tag_ids
+    self.available_tag_ids = tags.map &:available_tag_id
+  end
+
   def handle_post_validation
-    unless self.errors[:user].nil?
+    if self.user and not self.errors[:user].nil?
       self.user.errors.each{ |attr, msg| self.errors.add(attr, msg)}
       self.errors.delete(:user)
     end
   end
   private :handle_post_validation
 
+  # Create tags according available_tag_ids virtual attribute
   def recreate_tags
     tags.destroy_all
     create_tags

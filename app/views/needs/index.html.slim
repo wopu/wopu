@@ -1,15 +1,25 @@
-h1 Listing needs
+h1 My needs
 
 table
   tr
+    th Title
+    th Purpose
     th Description
+    th Beneficiaries
+    th Deadline
+    th Status
     th
     th
     th
 
   - @foundation.needs.each do |need|
     tr
+      td = need.open ? 'Open' : 'Close'
+      td = need.title
+      td = need.purpose
       td = need.description
+      td = need.beneficiary
+      td = need.deadline
       td = link_to 'Show', foundation_need_path(@foundation, need)
       td = link_to 'Edit', edit_foundation_need_path(@foundation, need)
       td = link_to 'Destroy', foundation_need_path(@foundation, need), :confirm => 'Are you sure?', :method => :delete

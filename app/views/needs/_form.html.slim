@@ -1,7 +1,20 @@
-= form_for @need do |f|
+/= form_for @need, url: foundation_needs_path(@need.foundation, @need) do |f|
+= form_for [@need.foundation, @need] do |f|
   = error_messages(@need)
 
   .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :purpose
+    = f.text_area :purpose, class: 'form-control', rows: 3
+  .form-group
     = f.label :description
-    = f.text_field :description, class: 'form-control'
+    = f.text_area :description, class: 'form-control', rows: 3
+  .form-group
+    = f.label :beneficiary
+    = f.text_field :beneficiary, class: 'form-control'
+  .form-group
+    = f.label :deadline
+    = f.text_field :deadline, class: 'form-control'
   = f.submit 'Save', class: 'btn btn-primary'

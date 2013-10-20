@@ -6,14 +6,14 @@ class Need
   field :purpose # What for?
   field :description, type: String # The petition
   field :open, type: Boolean, default: true
-  field :beneficiary, type: Integer
+  field :beneficiary
   field :deadline, type: DateTime
    # See what happened after the need was marked as close? Show results?
    #has_many :pictures
 
   belongs_to :foundation
   has_many :helps
-  has_many :tags, as: :thing
+  has_many :tags, as: :taggeable
 
   validates_presence_of :description
 end

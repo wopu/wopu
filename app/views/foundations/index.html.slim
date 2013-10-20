@@ -1,18 +1,8 @@
-h1 Foundations
 
 - if current_user
   = link_to 'New Foundation', new_foundation_path
 
-table
-  tr
-    th
-    th Name
-    th Mission
-    th Population
-
-  - @foundations.each do |foundation|
-    tr
-      td= image_tag foundation.logo.thumb
-      td= link_to foundation.name, foundation
-      td= foundation.mission
-      td= foundation.population
+== render partial: 'index',
+  locals: { foundations: @my_foundations, title: 'My Foundations' }
+== render partial: 'index',
+  locals: { foundations: @others_foundations, title: 'Others Foundations' }

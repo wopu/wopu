@@ -6,4 +6,10 @@ module FoundationDecorator
   def tags
     super.map(&:name).join ', '
   end
+
+  def certified?
+    if self.certified
+      content_tag(:span, nil, class: 'glyphicon glyphicon-thumbs-up', title: 'Certified')
+    end
+  end
 end
