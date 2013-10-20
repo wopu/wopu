@@ -21,7 +21,7 @@ class NeedsController < ApplicationController
     @need.foundation = Foundation.find(params[:foundation_id])
 
     if @need.save
-      redirect_to foundation_need_path(@need.foundation, @need), notice: 'Need was successfully created.'
+      redirect_to @need.foundation, notice: 'Need was successfully created.'
     else
       render action: 'new'
     end
