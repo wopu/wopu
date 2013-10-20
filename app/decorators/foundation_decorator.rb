@@ -9,7 +9,9 @@ module FoundationDecorator
 
   def certified?
     if self.certified
-      content_tag(:span, nil, class: 'glyphicon glyphicon-thumbs-up', title: 'Certified')
+      content_tag(:span, nil, class: 'glyphicon glyphicon-check', title: 'Certified')
+    else
+      content_tag(:span, nil, class: 'glyphicon glyphicon-uncheck', title: 'Not certified')
     end
   end
 end

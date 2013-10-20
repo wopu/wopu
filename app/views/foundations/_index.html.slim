@@ -1,16 +1,26 @@
 - title ||= 'Foundations'
 h1 = title
 
-table
-  tr
-    th
-    th Name
-    th Mission
-    th Population
-
-  - foundations.each do |foundation|
-    tr
-      td= image_tag foundation.logo.thumb
-      td= link_to foundation.name, foundation
-      td= foundation.mission
-      td= foundation.population
+- foundations.in_groups_of(2) do |foundation_subgroup|
+  .row
+    - foundation_subgroup.each do |foundation|
+      - if foundation
+        .col-md-6.foundation-box
+          .col-md-3
+            = image_tag foundation.logo.thumb
+            span.glyphicon.glyphicon-globe
+            = "#{foundation.city}, #{foundation.country}"
+          .col-md-9
+            h3
+              = link_to foundation.name, foundation
+              .pull-right
+                = certified? foundation
+            span.label.label-primary
+              = foundation.category.name
+            br
+            br
+            span.glyphicon.glyphicon-heart
+            = foundation.mission
+            br
+            span.glyphicon.glyphicon-user
+            = foundation.population
