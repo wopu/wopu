@@ -33,7 +33,7 @@ class Foundation
   after_validation :handle_post_validation
   after_save :recreate_tags
 
-  scope :others, ->(user){ ne(user_id: user.id) }
+  scope :others, ->(user){ user ? ne(user_id: user.id) : all }
 
   # Show selected tags when editing foundation
   def set_available_tag_ids

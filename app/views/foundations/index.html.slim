@@ -2,7 +2,10 @@
 - if current_user
   = link_to 'New Foundation', new_foundation_path
 
-== render partial: 'index',
-  locals: { foundations: @my_foundations, title: 'My Foundations' }
-== render partial: 'index',
-  locals: { foundations: @others_foundations, title: 'Others Foundations' }
+- if current_user
+  == render partial: 'index',
+    locals: { foundations: @my_foundations, title: 'My Foundations' }
+  == render partial: 'index',
+    locals: { foundations: @others_foundations, title: 'Others Foundations' }
+- else
+  == render partial: 'index',locals: { foundations: @others_foundations }
