@@ -9,6 +9,9 @@ p#notice = notice
     = link_to 'Edit', edit_foundation_path(@foundation)
     = image_tag @foundation.logo.thumb
     br
+    | Tags:
+    = @foundation.tags
+    br
     | Category:
     = @foundation.category_name
     br
