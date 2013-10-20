@@ -1,5 +1,7 @@
 Wopu::Application.routes.draw do
 
+  resources :results
+
   resources :categories
 
   resources :available_tags

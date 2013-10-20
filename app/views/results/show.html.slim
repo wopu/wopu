@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Description:
+  = @result.description
+
+= link_to 'Edit', edit_result_path(@result)
+'|
+= link_to 'Back', results_path
