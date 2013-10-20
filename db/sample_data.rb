@@ -15,7 +15,7 @@ end
 if user.foundations.empty?
   3.times do
     Foundation.create category: category, name: Faker::Company.name,
-      available_tag_ids: available_tag_ids
+      available_tag_ids: available_tag_ids, user: user
     print '.'
   end
 end
