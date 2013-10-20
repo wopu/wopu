@@ -2,7 +2,7 @@ class HelpsController < ApplicationController
   before_action :set_help, only: [:show, :edit, :update, :destroy]
 
   def index
-    @helps = Help.all
+    @helps = Help.available
   end
 
   def show
@@ -17,6 +17,7 @@ class HelpsController < ApplicationController
 
   def create
     @help = Help.new(help_params)
+    @help.helper = current_user
 
     if @help.save
       redirect_to @help, notice: 'Help was successfully created.'
