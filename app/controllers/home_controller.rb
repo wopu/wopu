@@ -9,4 +9,8 @@ class HomeController < ApplicationController
       redirect_to foundations_path, notice: 'Signed in as a test user!'
     end
   end
+
+  def about
+
+  end
 end
