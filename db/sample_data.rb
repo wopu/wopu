@@ -15,7 +15,8 @@ end
 if user.foundations.empty?
   3.times do
     foundation = user.foundations.create category: category, name: Faker::Company.name,
-      available_tag_ids: available_tag_ids
+      available_tag_ids: available_tag_ids, mission: Faker::Lorem.paragraph(3), population: '25 people with...',
+      start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1), city:  Faker::Lorem.word
     print 'f'
 
     if foundation.needs.empty?
@@ -45,12 +46,12 @@ puts ''
 
 puts "Creating foundations, needs and helps"
 3.times do
-
   foundation = Foundation.find_by(name: Faker::Company.name)
 
   unless foundation
     foundation = Foundation.create(category: category, name: Faker::Company.name,
-      available_tag_ids: available_tag_ids)
+      available_tag_ids: available_tag_ids, mission: Faker::Lorem.paragraph(3), population: '25 people with...',
+      start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1), city:  Faker::Lorem.word)
     print 'f'
   end
 
