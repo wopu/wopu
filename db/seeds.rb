@@ -9,18 +9,20 @@
 
 Mongoid.raise_not_found_error = false
 
-puts "\nCreating AvailableTags"
+puts "Creating AvailableTags"
 %w( asd qwe tre gfd ).each do |name|
   unless AvailableTag.find_by name: name
     AvailableTag.create name: name
   end
   print '.'
 end
+puts ''
 
-puts "\nCreating Categories"
+puts "Creating Categories"
 %w( dsa ewq ).each do |name|
   unless Category.find_by name: name
     Category.create name: name
   end
   print '.'
 end
+puts ''

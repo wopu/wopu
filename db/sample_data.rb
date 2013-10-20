@@ -6,7 +6,7 @@ def available_tag_ids; AvailableTag.all.sample(2).map(&:id) end
 
 password = '123123'
 
-puts "\nCreating test user and foundations for this user"
+puts "Creating test user and foundations for this user"
 unless user = User.find_by(name: 'test')
   user = User.create(name: 'test', email: 'test@test.com', password: password)
   print '.'
@@ -19,15 +19,17 @@ if user.foundations.empty?
     print '.'
   end
 end
+puts ''
 
-puts "\nCreating users"
+puts "Creating users"
 4.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email,
     password: password)
   print '.'
 end
+puts ''
 
-puts "\nCreating foundations, needs and helps"
+puts "Creating foundations, needs and helps"
 3.times do
 
   foundation = Foundation.find_by(name: Faker::Company.name)
@@ -51,4 +53,5 @@ puts "\nCreating foundations, needs and helps"
     end
   end
 end
+puts ''
 
