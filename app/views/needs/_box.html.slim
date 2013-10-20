@@ -1,5 +1,5 @@
 h4= need.title
-= link_to 'Help', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
+= link_to 'Donate', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
   'data-toggle' => "modal", 'data-selector' => 'need-btn'
 - if can_manage? @foundation
   = link_to 'Mark solved', '#resultModal', 'data-need' => need.id,
