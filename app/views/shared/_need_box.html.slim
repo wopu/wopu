@@ -16,11 +16,11 @@ br
 ul
   label Helping
   br
-  - need.helps.each do |help|
+  - need.helps.pending.each do |help|
     = help.helper.name
     br
     = help.description
     - if can_manage? @foundation
-      = link_to 'Accept', '#', class: 'btn btn-primary'
-      = link_to 'Ignore', '#', class: 'btn btn-default'
+      = link_to 'Accept', help_accept_path(help), class: 'btn btn-primary', method: :post
+      = link_to 'Ignore', help_reject_path(help), class: 'btn btn-default', method: :post
       = mail_to help.helper.email, 'Contact'

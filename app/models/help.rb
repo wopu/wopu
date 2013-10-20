@@ -12,4 +12,16 @@ class Help
   validates_presence_of :description, :helper
 
   scope :available, ->{ where(suggested: true, accepted: nil) }
+  scope :pending, ->{ where(suggested: false, accepted: nil) }
+
+  def accept!
+    self.accepted = true
+    self.save
+  end
+
+  def reject!
+    self.accepted = false
+    self.need = nil
+    self.save
+  end
 end

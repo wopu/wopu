@@ -8,7 +8,10 @@ Wopu::Application.routes.draw do
 
   resources :tags
 
-  resources :helps
+  resources :helps do
+    post 'accept' => 'helps#accept'
+    post 'reject' => 'helps#reject'
+  end
 
   resources :users
 

@@ -45,6 +45,21 @@ class HelpsController < ApplicationController
     redirect_to helps_url
   end
 
+  def accept
+    help = Help.find(params[:help_id])
+    help.accept!
+
+    redirect_to foundation_path(help.need.foundation), notice: 'Great, the Hero will be notified to make the help effective'
+  end
+
+  def reject
+    help = Help.find(params[:help_id])
+    foundation = help.need.foundation
+    help.reject!
+
+    redirect_to foundation_path(foundation), notice: ':('
+  end
+
   private
     def set_help
       @help = Help.find(params[:id])
