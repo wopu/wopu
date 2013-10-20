@@ -13,18 +13,22 @@
     = need.beneficiary
     br
     = need.deadline
-
-    ul
-      label Helping
-      br
-      - need.helps.pending.each do |help|
+    br
+    br
+    h4
+      | Heros helping for this cause
+    - need.helps.pending.each do |help|
+      strong
         = help.helper.name
-        br
-        = help.description
-        - if can_manage? @foundation
-          = link_to 'Accept', help_accept_path(help), class: 'btn btn-primary', method: :post
-          = link_to 'Ignore', help_reject_path(help), class: 'btn btn-default', method: :post
-          = mail_to help.helper.email, 'Contact'
+      br
+      = help.description
+      br
+      - if can_manage? @foundation
+        .pull-right
+          = mail_to help.helper.email, 'Contact hero'
+        = link_to 'Accept', help_accept_path(help), class: 'btn btn-primary btn-xs', method: :post
+        = link_to 'Ignore', help_reject_path(help), class: 'btn btn-default btn-xs', method: :post
+      hr
 
     = link_to 'Donate', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
       'data-toggle' => "modal", 'data-selector' => 'need-btn'
