@@ -28,15 +28,15 @@ p#notice = notice
   .col-md-6
     h2 Contact info
     | Representative:
-    = @foundation.contact_info.representative
+    = @foundation.contact_info.try :representative
     br
     | Phone:
-    = @foundation.contact_info.phone
+    = @foundation.contact_info.try :phone
     br
     | Address:
-    = @foundation.contact_info.address
+    = @foundation.contact_info.try :address
     br
-    = mail_to @foundation.contact_info.email, 'Contact', target: '_blank'
+    = mail_to @foundation.contact_info.try(:email), 'Contact', target: '_blank'
 
 .row
   h2 Needs
