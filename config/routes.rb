@@ -1,6 +1,8 @@
 Wopu::Application.routes.draw do
 
-  resources :results
+  resources :needs do
+    resources :results
+  end
 
   resources :categories
 

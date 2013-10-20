@@ -14,6 +14,7 @@ class Need
   belongs_to :foundation
   has_many :helps
   has_many :tags, as: :taggeable
+  has_one :result
 
   validates_presence_of :description
 
