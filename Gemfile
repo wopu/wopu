@@ -50,4 +50,4 @@ gem "carrierwave"
 gem "carrierwave-mongoid"
 gem "mini_magick"
 gem "active_decorator"
-gem "faker", group: [:development, :test]
+gem "faker"
