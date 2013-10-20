@@ -8,6 +8,8 @@ class Foundation
   field :population
   field :start_date, type: DateTime
   field :certified, type: Boolean, default: false
+  field :country
+  field :city
 
   mount_uploader :logo, ImageUploader
 

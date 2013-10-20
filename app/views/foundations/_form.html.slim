@@ -24,6 +24,12 @@
   .form-group
     label Date of foundation:
     = f.text_field :start_date, class: 'form-control'
+  .form-group
+    label Country:
+    = f.text_field :country, class: 'form-control'
+  .form-group
+    label City:
+    = f.text_field :city, class: 'form-control'
 
   h2 Contact info
   = f.fields_for :contact_info do |builder|
