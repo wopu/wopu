@@ -1,11 +1,32 @@
+$sansfont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$seriffont: "Rockwell", "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+$red: #ea4a4a;
+$darkred: #ce2a2a;
 body{
   padding-top: 50px;
   padding-bottom: 20px;
+  font-family: $sansfont !important;
+  color: #676767 !important;
+}
+h1, h2, h3, h4, h5{
+  font-family: $seriffont !important;
+  color: #333333 !important;
+}
+.navbar-brand{
+  font-family: $seriffont;
+  color: #FFF !important;
+  text-shadow: 2px 1px 0px rgba(10, 10, 10, 1);
+  font-size: 28px !important;
+  margin-right: 15px;
 }
 #nav{
+  background-color: $red !important;
   li{
     font-size: 0.9em;
     line-height: 1;
+    a{
+      color: #FFF !important;
+    }
   }
   input{
     height: auto;
@@ -14,8 +35,25 @@ body{
     margin-right: 4px;
     vertical-align: middle;
     color: #bbb;
+    font-family: $sansfont;
   }
   .search-form{
     margin-top: 10px;
   }
+}
+.jumbotron{
+  background: url('/assets/banner.png') no-repeat center right #000000 !important;
+  color: #DDD !important;
+  h1{
+    color: #FFF !important;
+  }
+}
+.btn-red{
+  color: #FFF;
+  background-color: $red;
+  border-color: $darkred;
+}
+.btn-red:hover{
+  color: #EEE !important;
+  background-color: $darkred;
 }
