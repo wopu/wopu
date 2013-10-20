@@ -46,13 +46,11 @@
     = mail_to @foundation.contact_info.try(:email), 'Contact', target: '_blank'
 
 .row
-  h2 Needs
-  - @foundation.needs.active.in_groups_of(2) do |need_subgroup|
-    .row
-      - need_subgroup.each do |need|
-        - if need
-          .col-md-6
-            = render 'needs/box', need: need
+  == render 'needs/index', needs: @foundation.needs.active.in_groups_of(2),
+    title: 'Needs'
+.row
+  == render 'needs/index', needs: @foundation.needs.inactive.in_groups_of(2),
+    title: 'Solved Needs'
 
 = render 'help_modal'
 

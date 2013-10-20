@@ -19,6 +19,7 @@ class Need
   validates_presence_of :description
 
   scope :active, ->() { where(open: true) }
+  scope :inactive, ->() { where(open: false) }
 
   def solve!
     self.open = false
