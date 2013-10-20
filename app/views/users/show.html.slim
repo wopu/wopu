@@ -16,12 +16,16 @@ h1= @user.name
           - if help
             .col-md-6
               div
-                = image_tag help.need.foundation.logo.thumb
+                = image_tag help.need.foundation.logo.thumb, class: 'centered'
+              div
                 strong Foundation
+                | &emsp;
                 = link_to help.need.foundation.name, help.need.foundation
               div
                 strong Need:
+                | &emsp;
                 = help.need.title
               div
                 strong Donation:
+                | &emsp;
                 = help.description
