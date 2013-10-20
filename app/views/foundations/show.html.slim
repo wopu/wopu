@@ -6,6 +6,7 @@ p#notice = notice
 .row
   .col-md-6
     h1= @foundation.name
+    = @foundation.certified?
     - if can_manage? @foundation
       = link_to 'Edit', edit_foundation_path(@foundation)
     = image_tag @foundation.logo.thumb
