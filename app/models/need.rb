@@ -13,7 +13,7 @@ class Need
 
   belongs_to :foundation
   has_many :helps
-  has_many :tags, as: :thing
+  has_many :tags, as: :taggeable
 
   validates_presence_of :description
 end
