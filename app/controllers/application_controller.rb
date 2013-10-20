@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def sign_in(user)
-    session[:user_id] = user.id
+    session[:user_id] = user.id if user
   end
 
 end
