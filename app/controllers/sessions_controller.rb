@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    if @user = User.sign_in(session_params)
-      session[:user_id] = @user.id
+    if sign_in User.find_by(session_params)
       redirect_to request.referrer, notice: 'Signed in!'
     else
       redirect_to root_path, alert: 'Wrong email or password.'
