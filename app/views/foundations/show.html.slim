@@ -51,7 +51,8 @@ p#notice = notice
     - @foundation.needs.each do |need|
       li
         = need.description
-        = link_to 'Help', '#'
+        = link_to 'Help', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
+          'data-toggle' => "modal", 'data-selector' => 'need-btn'
         - if can_manage? @foundation
           = link_to 'Mark solved', '#'
         ul
@@ -65,3 +66,16 @@ p#notice = notice
               = link_to 'Accept', '#'
               = link_to 'Ignore', '#'
               = link_to 'Contact', '#'
+
+= render 'need_modal'
+
+javascript:
+  $(document).on('ready', function(){
+    $needBtn = $('[data-selector="need-btn"]');
+    $needIdHidden = $('[data-selector="need-id"]');
+
+    $needBtn.on('click', function(e){
+      needId = $(this).data('need');
+      $needIdHidden.val(needId);
+    });
+  });
