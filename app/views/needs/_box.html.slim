@@ -1,31 +1,34 @@
-h4= need.title
+.panel.panel-default
+  .panel-body
+    .panel-title
+      h3= need.title
 
-- unless need.open
-  == render 'results/show', result: need.result
+    - unless need.open
+      == render 'results/show', result: need.result
 
-= link_to 'Donate', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
-  'data-toggle' => "modal", 'data-selector' => 'need-btn'
-- if can_manage? @foundation
-  = link_to 'Mark solved', '#resultModal', 'data-need' => need.id,
-    'data-toggle' => "modal", 'data-selector' => 'need-btn',
-    class: 'btn btn-success'
-br
-= need.purpose
-br
-= need.description
-br
-= need.beneficiary
-br
-= need.deadline
-
-ul
-  label Helping
-  br
-  - need.helps.pending.each do |help|
-    = help.helper.name
+    = need.purpose
     br
-    = help.description
+    = need.description
+    br
+    = need.beneficiary
+    br
+    = need.deadline
+
+    ul
+      label Helping
+      br
+      - need.helps.pending.each do |help|
+        = help.helper.name
+        br
+        = help.description
+        - if can_manage? @foundation
+          = link_to 'Accept', help_accept_path(help), class: 'btn btn-primary', method: :post
+          = link_to 'Ignore', help_reject_path(help), class: 'btn btn-default', method: :post
+          = mail_to help.helper.email, 'Contact'
+
+    = link_to 'Donate', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
+      'data-toggle' => "modal", 'data-selector' => 'need-btn'
     - if can_manage? @foundation
-      = link_to 'Accept', help_accept_path(help), class: 'btn btn-primary', method: :post
-      = link_to 'Ignore', help_reject_path(help), class: 'btn btn-default', method: :post
-      = mail_to help.helper.email, 'Contact'
+      = link_to 'Mark solved', '#resultModal', 'data-need' => need.id,
+        'data-toggle' => "modal", 'data-selector' => 'need-btn',
+        class: 'btn btn-success'
