@@ -11,8 +11,8 @@ html
     = csrf_meta_tags
   body
     = render 'shared/menu'
-
-    .container
+    = render 'home/banner'
+    .container.main
       = render 'shared/flash'
       = yield
       = render 'shared/footer'
