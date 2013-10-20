@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5{
   }
 }
 .jumbotron{
-  background: url(<%= asset_path('banner.png') %>) no-repeat center right #000000 !important;
+  background: asset_url('banner.png') no-repeat center right #000000 !important;
   color: #DDD !important;
   h1{
     color: #FFF !important;
