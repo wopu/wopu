@@ -2,14 +2,11 @@ h1 Available Donations
 - if current_user
   = link_to 'New Donation', new_help_path, class: 'btn btn-primary'
 
-table
-  tr
-    th Helper
-    th Description
-    th
 
-  - @helps.each do |help|
-    tr
-      td= help.helper.name
-      td= help.description
-      td= link_to 'Request this donation', '#'
+.alert.alert-info
+  | Heros can suggest donations! Comming soon...
+
+- @available_helps.each do |help|
+  = help.helper.name
+  = help.description
+  = link_to 'Request this donation', '#'

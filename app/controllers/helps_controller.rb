@@ -2,7 +2,7 @@ class HelpsController < ApplicationController
   before_action :set_help, only: [:show, :edit, :update, :destroy]
 
   def index
-    @helps = Help.available
+    @available_helps = Help.available
   end
 
   def show
