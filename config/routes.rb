@@ -14,7 +14,9 @@ Wopu::Application.routes.draw do
   delete 'sessions', to: 'sessions#destroy'
 
   resources :foundations do
-    resources :needs
+    resources :needs do
+      post 'mark_solved' => 'needs#mark_solved'
+    end
   end
 
   get 'admin' => 'admin#index'

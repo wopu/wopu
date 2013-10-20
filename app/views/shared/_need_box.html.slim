@@ -2,7 +2,8 @@ h4= need.title
 = link_to 'Help', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
   'data-toggle' => "modal", 'data-selector' => 'need-btn'
 - if can_manage? @foundation
-  = link_to 'Mark solved', '#', class: 'btn btn-success'
+  = link_to 'Mark solved', foundation_need_mark_solved_path(@foundation, need),
+    class: 'btn btn-success', method: :post
 br
 = need.purpose
 br

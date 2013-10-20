@@ -42,6 +42,13 @@ class NeedsController < ApplicationController
     redirect_to foundation_needs_path(foundation)
   end
 
+  def mark_solved
+    need = Need.find(params[:need_id])
+    need.solve!
+
+    redirect_to foundation_path(need.foundation), notice: 'Great, your need was solved!'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_need
