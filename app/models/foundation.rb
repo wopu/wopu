@@ -31,7 +31,7 @@ class Foundation
   after_save :recreate_tags
 
   def handle_post_validation
-    unless self.errors[:user].nil?
+    if self.user and not self.errors[:user].nil?
       self.user.errors.each{ |attr, msg| self.errors.add(attr, msg)}
       self.errors.delete(:user)
     end
