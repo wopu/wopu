@@ -19,13 +19,13 @@ class HelpsController < ApplicationController
     @help = Help.new(help_params)
     @help.helper = current_user
 
-    if(need_id = params[:need_id])
+    if(need_id = params[:help][:need_id])
       need = Need.find(need_id)
       @help.need = need
     end
 
     if @help.save
-      redirect_to @help, notice: 'Help was successfully created.'
+      redirect_to :back, notice: 'Thanks for your help, Hero!'
     else
       render action: 'new'
     end
