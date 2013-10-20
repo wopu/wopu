@@ -1,4 +1,8 @@
 h4= need.title
+
+- unless need.open
+  == render 'results/show', result: need.result
+
 = link_to 'Donate', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
   'data-toggle' => "modal", 'data-selector' => 'need-btn'
 - if can_manage? @foundation

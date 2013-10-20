@@ -62,6 +62,9 @@ javascript:
 
     $needBtn.on('click', function(e){
       needId = $(this).data('need');
-      $needIdHidden.val(needId);
+      for(var i = 0; i < $needIdHidden.size(); i++){
+        var el = $needIdHidden.eq(i);
+        el.val(needId);
+      }
     });
   });

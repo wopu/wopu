@@ -16,12 +16,13 @@ if user.foundations.empty?
   3.times do
     foundation = user.foundations.create category: category, name: Faker::Company.name,
       available_tag_ids: available_tag_ids, mission: Faker::Lorem.paragraph(3), population: '25 people with...',
-      start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1), city:  Faker::Lorem.word
+      start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1)[0], city:  Faker::Lorem.word
     print 'f'
 
     if foundation.needs.empty?
       3.times do
-        need = foundation.needs.create description: Faker::Lorem.sentence
+        need = foundation.needs.create description: Faker::Lorem.sentence,
+          title: Faker::Lorem.words.join(' ')
         print 'n'
 
         3.times do
@@ -51,13 +52,13 @@ puts "Creating foundations, needs and helps"
   unless foundation
     foundation = Foundation.create(category: category, name: Faker::Company.name,
       available_tag_ids: available_tag_ids, mission: Faker::Lorem.paragraph(3), population: '25 people with...',
-      start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1), city:  Faker::Lorem.word)
+      start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1)[0], city:  Faker::Lorem.word)
     print 'f'
   end
 
   if foundation.needs.empty?
     3.times do
-      need = foundation.needs.create description: Faker::Lorem.sentence
+      need = foundation.needs.create description: Faker::Lorem.sentence, title: Faker::Lorem.words.join(' ')
       print 'n'
 
       3.times do
