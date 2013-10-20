@@ -6,8 +6,7 @@
     p
       | Create a foundation profile, tell everyone your mission and how can other people help you accomplish it.
     p
-      a class="btn btn-red" href="#"
-        | Register &raquo;
+      = link_to "Register &raquo;".html_safe, new_foundation_path, class: "btn btn-red"
 
   .col-lg-4
     h2
@@ -16,8 +15,7 @@
     p
       | Are you looking for a way to help others? Browse foundations from all around the globe and take action.
     p
-      a class="btn btn-red" href="#"
-        | Start now &raquo;
+      = link_to "Start now &raquo;".html_safe, new_user_path, class: "btn btn-red"
 
   .col-lg-4
     h2
