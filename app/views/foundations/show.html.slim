@@ -1,12 +1,13 @@
 .row.add-padd-top
   .col-md-4
-    = @foundation.certified?
     = image_tag @foundation.logo, width: 360, class: 'img-thumbnail'
   .col-md-8
     .pull-right.add-padd-top
       - if can_manage? @foundation
         = link_to 'Edit', edit_foundation_path(@foundation), class: 'btn btn-default btn-sm'
-    h1= @foundation.name
+    h1
+      = @foundation.certified?
+      = @foundation.name
     hr
     .row
       .col-md-6
