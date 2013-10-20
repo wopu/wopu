@@ -9,8 +9,9 @@ class User
   mount_uploader :avatar, ImageUploader
 
   has_many :helps, as: :helper
+  has_many :foundations
 
-  validates_presence_of :name, :email, :password
+  validates_presence_of :email, :password
 
   def self.sign_in(params); where(params).first end
 end

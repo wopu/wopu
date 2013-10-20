@@ -16,7 +16,7 @@
     = f.text_area :mission, rows: 2, class: 'form-control'
   .form-group
     label Population:
-    = f.text_area :population, rows: 2, class: 'form-control'
+    = f.text_area :population, rows: 2, class: 'form-control', placeholder: 'e.g. 36 children with SIDA'
   .form-group
     label Date of foundation:
     = f.text_field :start_date, class: 'form-control'
@@ -35,5 +35,15 @@
     .form-group
       label Address:
       = builder.text_field :address, class: 'form-control'
+
+  - unless @foundation.persisted?
+    h2 Credentials
+    = f.fields_for :user do |fb|
+      .form-group
+        label Email:
+        = fb.email_field :email, class: 'form-control'
+      .form-group
+        label Password:
+        = fb.password_field :password, class: 'form-control'
 
   = f.submit 'Save', class: 'btn btn-primary'
