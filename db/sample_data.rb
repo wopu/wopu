@@ -14,9 +14,23 @@ end
 
 if user.foundations.empty?
   3.times do
-    Foundation.create category: category, name: Faker::Company.name,
-      available_tag_ids: available_tag_ids, user: user
-    print '.'
+    foundation = user.foundations.create category: category, name: Faker::Company.name,
+      available_tag_ids: available_tag_ids
+    print 'f'
+
+    if foundation.needs.empty?
+      3.times do
+        need = foundation.needs.create description: Faker::Lorem.sentence
+        print 'n'
+
+        3.times do
+          need.helps.create description: Faker::Lorem.sentence,
+            helper: User.all.sample
+          print '.'
+        end
+      end
+    end
+
   end
 end
 puts ''
