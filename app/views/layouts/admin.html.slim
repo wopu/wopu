@@ -11,6 +11,7 @@ html
     = csrf_meta_tags
   body.container
     h1 = link_to "WOPU", root_path
+    = render 'shared/sign_in'
 
     = link_to "Available Tags", available_tags_path
     br
