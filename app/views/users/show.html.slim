@@ -1,17 +1,27 @@
-p#notice = notice
+h1= @user.name
+- if @user == current_user
+  = link_to 'Edit', edit_user_path(@user)
+.row
+  .col-md-3
+    = image_tag @user.avatar, width: 250
+    = mail_to @user.email, 'Contact me!'
+  .col-md-9
 
-p
-  = image_tag @user.avatar.thumb
-p
-  - if @user == current_user
-    = link_to 'Edit', edit_user_path(@user)
-p
-  strong Name:
-  = @user.name
-p
-  strong Email:
-  = @user.email
-p
-  strong Password:
-  = @user.password
-
+    h2
+      span.glyphicon.glyphicon-heart
+      = "#{@user.helps.count} Donations"
+    - @user.helps.in_groups_of(2).each do |helps_subgroup|
+      .row
+        - helps_subgroup.each do |help|
+          - if help
+            .col-md-6
+              div
+                = image_tag help.need.foundation.logo.thumb
+                strong Foundation
+                = link_to help.need.foundation.name, help.need.foundation
+              div
+                strong Need:
+                = help.need.title
+              div
+                strong Donation:
+                = help.description
