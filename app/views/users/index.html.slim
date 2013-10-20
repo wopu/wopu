@@ -1,13 +1,15 @@
-h1 Supportive people
+h1 Heros
 
-table
-  tr
-    th
-    th Name
-    th Email
-
-  - @users.each do |user|
-    tr
-      th= image_tag user.avatar.thumb
-      td= link_to user.name, user
-      td= user.email
+- @users.in_groups_of(4) do |users_subgroup|
+  .row
+    - users_subgroup.each do |user|
+      - if user
+        .col-md-3.user-box
+          .pull-left
+            = image_tag user.avatar.thumb, width: 60
+          h4
+            = link_to user.name, user
+          = mail_to user.email, user.email
+          br
+          span.glyphicon.glyphicon-heart
+          = user.helps.count
