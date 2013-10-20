@@ -2,7 +2,7 @@ h1 Editing need
 
 == render 'form'
 
-= link_to 'Show', @need
+= link_to 'Show', foundation_need_path(@need.foundation, @need)
 '|
-= link_to 'Back', needs_path
+= link_to 'Back', foundation_needs_path(@need.foundation)
 

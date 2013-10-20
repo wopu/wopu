@@ -6,7 +6,7 @@ class Need
   field :purpose # What for?
   field :description, type: String # The petition
   field :open, type: Boolean, default: true
-  field :beneficiary, type: Integer
+  field :beneficiary
   field :deadline, type: DateTime
    # See what happened after the need was marked as close? Show results?
    #has_many :pictures

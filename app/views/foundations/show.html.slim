@@ -1,7 +1,8 @@
 p#notice = notice
 .row
-  h2 Actions
-  = link_to 'Needs', foundation_needs_path(@foundation)
+  - if can_manage? @foundation
+    h2 Actions
+    = link_to 'Needs', foundation_needs_path(@foundation)
 
 .row
   .col-md-6

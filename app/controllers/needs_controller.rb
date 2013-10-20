@@ -9,7 +9,8 @@ class NeedsController < ApplicationController
   end
 
   def new
-    @need = Need.new
+    foundation = Foundation.find(params[:foundation_id])
+    @need = foundation.needs.build
   end
 
   def edit
@@ -17,9 +18,10 @@ class NeedsController < ApplicationController
 
   def create
     @need = Need.new(need_params)
+    @need.foundation = Foundation.find(params[:foundation_id])
 
     if @need.save
-      redirect_to @need, notice: 'Need was successfully created.'
+      redirect_to foundation_need_path(@need.foundation, @need), notice: 'Need was successfully created.'
     else
       render action: 'new'
     end
@@ -27,16 +29,17 @@ class NeedsController < ApplicationController
 
   def update
     if @need.update(need_params)
-      redirect_to @need, notice: 'Need was successfully updated.'
+      redirect_to foundation_need_path(@need.foundation, @need), notice: 'Need was successfully updated.'
     else
       render action: 'edit'
     end
   end
 
   def destroy
+    foundation = @need.foundation
     @need.destroy
 
-    redirect_to needs_url
+    redirect_to foundation_needs_path(foundation)
   end
 
   private
@@ -46,6 +49,6 @@ class NeedsController < ApplicationController
     end
 
     def need_params
-      params.require(:need).permit(:description)
+      params.require(:need).permit(:title, :purpose, :description, :beneficiary, :deadline)
     end
 end
