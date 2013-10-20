@@ -22,7 +22,8 @@ if user.foundations.empty?
     if foundation.needs.empty?
       3.times do |i|
         need = foundation.needs.create description: Faker::Lorem.sentence,
-          title: Faker::Lorem.words.join(' ')
+          title: Faker::Lorem.words.join(' '), purpose: Faker::Lorem.sentence,
+          beneficiary: Faker::Lorem.sentence, deadline: rand(10).days.from_now
         print 'n'
 
         if i == 2
@@ -63,7 +64,9 @@ puts "Creating foundations, needs and helps"
 
   if foundation.needs.empty?
     3.times do |i|
-      need = foundation.needs.create description: Faker::Lorem.sentence, title: Faker::Lorem.words.join(' ')
+      need = foundation.needs.create description: Faker::Lorem.sentence,
+        title: Faker::Lorem.words.join(' '), purpose: Faker::Lorem.sentence,
+        beneficiary: Faker::Lorem.sentence, deadline: rand(10).days.from_now
       print 'n'
 
       if i == 2
