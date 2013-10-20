@@ -58,6 +58,18 @@ h1, h2, h3, h4, h5{
   background-color: $darkred;
 }
 
+.add-padd-top{
+  padding-top: 20px;
+}
+.add-right{
+  margin-right: 8px;
+}
+.panel-title{
+  h3{
+    margin-top: 0px;
+  }
+}
+
 span.glyphicon {
   margin-right: 5px;
 }

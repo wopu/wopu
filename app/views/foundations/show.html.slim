@@ -1,49 +1,57 @@
-.row
-  - if can_manage? @foundation
-    h2 Actions
-    = link_to 'Needs', foundation_needs_path(@foundation)
-
-.row
-  .col-md-6
-    h1= @foundation.name
+.row.add-padd-top
+  .col-md-4
     = @foundation.certified?
-    - if can_manage? @foundation
-      = link_to 'Edit', edit_foundation_path(@foundation)
-    = image_tag @foundation.logo, width: 500
-    br
-    | Tags:
-    = @foundation.tags
-    br
-    | Category:
-    = @foundation.category_name
-    br
-    | Mission:
-    = @foundation.mission
-    br
-    | Population:
-    = @foundation.population
-    br
-    | Date of foundation:
-    = @foundation.start_date
-    br
-    | Country:
-    = @foundation.country
-    br
-    | City:
-    = @foundation.city
-    br
-  .col-md-6
-    h2 Contact info
-    | Representative:
-    = @foundation.contact_info.try :representative
-    br
-    | Phone:
-    = @foundation.contact_info.try :phone
-    br
-    | Address:
-    = @foundation.contact_info.try :address
-    br
-    = mail_to @foundation.contact_info.try(:email), 'Contact', target: '_blank'
+    = image_tag @foundation.logo, width: 360, class: 'img-thumbnail'
+  .col-md-8
+    .pull-right.add-padd-top
+      - if can_manage? @foundation
+        = link_to 'Edit', edit_foundation_path(@foundation), class: 'btn btn-default btn-sm'
+    h1= @foundation.name
+    hr
+    .row
+      .col-md-6
+        strong
+          | Representative: 
+        = @foundation.contact_info.try :representative
+        br
+        strong
+          | Phone: 
+        = @foundation.contact_info.try :phone
+        br
+        strong
+          | Address: 
+        = @foundation.contact_info.try :address
+        br
+        = mail_to @foundation.contact_info.try(:email), 'Contact', target: '_blank'
+        br
+        strong
+          | Category: 
+        = @foundation.category_name
+        br
+        strong
+          | Date of foundation: 
+        = @foundation.start_date
+        br
+        strong
+          | Location: 
+        = @foundation.country
+        | ,
+        = @foundation.city
+        br
+        br
+        = @foundation.tags
+        br
+        br
+        - if can_manage? @foundation
+          = link_to 'Manage Needs', foundation_needs_path(@foundation), class: 'btn btn-primary'
+      .col-md-6
+        h4
+          | Mission:
+        = @foundation.mission
+        br
+        h4
+          | Population:
+        = @foundation.population
 
 .row
   == render 'needs/index', needs: @foundation.needs.active.in_groups_of(2),
