@@ -1,0 +1,16 @@
+- title ||= 'Foundations'
+h1 = title
+
+table
+  tr
+    th
+    th Name
+    th Mission
+    th Population
+
+  - foundations.each do |foundation|
+    tr
+      td= image_tag foundation.logo.thumb
+      td= link_to foundation.name, foundation
+      td= foundation.mission
+      td= foundation.population

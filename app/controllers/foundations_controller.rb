@@ -2,7 +2,8 @@ class FoundationsController < ApplicationController
   before_action :set_foundation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @foundations = Foundation.all
+    @my_foundations = current_user.try(:foundations)
+    @others_foundations = Foundation.others(current_user)
   end
 
   def show

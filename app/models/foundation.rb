@@ -33,6 +33,8 @@ class Foundation
   after_validation :handle_post_validation
   after_save :recreate_tags
 
+  scope :others, ->(user){ ne(user_id: user.id) }
+
   # Show selected tags when editing foundation
   def set_available_tag_ids
     self.available_tag_ids = tags.map &:available_tag_id
