@@ -16,4 +16,6 @@ class Need
   has_many :tags, as: :taggeable
 
   validates_presence_of :description
+
+  scope :active, ->() { where(open: true) }
 end
