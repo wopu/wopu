@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   def create
     if sign_in User.find_by(session_params)
-      redirect_to request.referrer, notice: 'Signed in!'
+      redirect_to :back, notice: 'Signed in!'
     else
-      redirect_to root_path, alert: 'Wrong email or password.'
+      redirect_to :back, alert: 'Wrong email or password.'
     end
   end
 

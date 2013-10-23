@@ -24,6 +24,11 @@
             = link_to "Admin", admin_path
           - elsif current_user
             = link_to "Profile", user_path(current_user)
+          - else
+            = link_to "Sign in", '#sessionModal', 'data-toggle' => 'modal'
+            - content_for :modal do
+              = render 'sessions/modal'
+
       ul class="nav navbar-nav navbar-right"
         li
           - if current_user
