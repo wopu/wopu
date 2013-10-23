@@ -4,3 +4,5 @@
 
 $ ->
   $('#foundation_form select#foundation_available_tag_ids').chosen()
+
+  $('.chosen-container ul').addClass 'form-control'
