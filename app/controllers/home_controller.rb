@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def try_now
-    if sign_in User.first
+    if sign_in User.ne(_type: :Admin).first
       redirect_to foundations_path, notice: 'Signed in as a test user!'
     end
   end

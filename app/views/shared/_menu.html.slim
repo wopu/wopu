@@ -15,12 +15,15 @@
         li
           = link_to "Donations", helps_path
         li
+          = link_to "About us", about_path
+        li
           = link_to "Try now!", '/try_now'
       ul class="nav navbar-nav navbar-right"
         li
-          = link_to "Admin", admin_path
-        li
-          = link_to "About us", about_path
+          - if admin?
+            = link_to "Admin", admin_path
+          - elsif current_user
+            = link_to "Profile", user_path(current_user)
       ul class="nav navbar-nav navbar-right"
         li
           - if current_user

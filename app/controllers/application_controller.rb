@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def admin?
+    current_user.is_a? Admin
+  end
+  helper_method :admin?
+
   def sign_in(user)
     session[:user_id] = user.id if user
   end
