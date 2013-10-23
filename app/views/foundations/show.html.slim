@@ -54,12 +54,9 @@
           | Population:
         = @foundation.population
 br
-.row
-  == render 'needs/index', needs: @foundation.needs.active.in_groups_of(2),
-    title: 'Needs'
-.row
-  == render 'needs/index', needs: @foundation.needs.inactive.in_groups_of(2),
-    title: 'Solved Needs'
+
+h1 Needs
+= render 'needs/in_tabs', needs: @foundation.needs
 
 = render 'help_modal'
 = render 'results/modal'

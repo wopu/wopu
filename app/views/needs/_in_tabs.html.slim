@@ -1,0 +1,13 @@
+ul.nav.nav-tabs
+  li
+    a data-toggle="tab" href="#current" Current
+  li
+    a data-toggle="tab" href="#solved" Solved
+
+.tab-content
+  #current.tab-pane.active
+    == render 'needs/index', needs: needs.active.in_groups_of(2)
+
+  #solved.tab-pane
+    == render 'needs/index', needs: needs.inactive.in_groups_of(2)
+

@@ -4,7 +4,14 @@
       h3= need.title
 
     - unless need.open
+      .label.label-success Solved
+      br
+      br
       == render 'results/show', result: need.result
+      hr
+      .label.label-warning Need
+      br
+      br
 
     = need.purpose
     br
