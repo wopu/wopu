@@ -1,3 +1,5 @@
+password = '123123'
+
 puts "Creating users"
 4.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email,

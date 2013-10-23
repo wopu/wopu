@@ -1,3 +1,5 @@
+password = '123123'
+
 puts "Creating test user and foundations for this user"
 unless user = User.find_by(name: 'test')
   user = User.create(name: 'test', email: 'test@test.com', password: password)
