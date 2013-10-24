@@ -19,15 +19,20 @@
         li
           = link_to "Try now!", '/try_now'
       ul class="nav navbar-nav navbar-right"
-        li
-          - if admin?
+        - if admin?
+          li
             = link_to "Admin", admin_path
-          - elsif current_user
+        - elsif current_user
+          li
             = link_to "Profile", user_path(current_user)
-          - else
+        - else
+          li
+            = link_to "Sign up", '#userModal', 'data-toggle' => 'modal'
+          li
             = link_to "Sign in", '#sessionModal', 'data-toggle' => 'modal'
-            - content_for :modal do
-              = render 'sessions/modal'
+          - content_for :modal do
+            = render 'sessions/modal'
+            = render 'users/modal'
 
       ul class="nav navbar-nav navbar-right"
         li

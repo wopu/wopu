@@ -1,5 +1,6 @@
-= form_for @user do |f|
-  = error_messages(@user)
+- user = @user || :user
+= form_for user do |f|
+  = error_messages(f.object)
 
   .form-group
     = f.label :name

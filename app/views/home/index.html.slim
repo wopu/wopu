@@ -15,7 +15,8 @@
     p
       | Are you looking for a way to help others? Browse foundations from all around the globe and take action.
     p
-      = link_to "Start now &raquo;".html_safe, new_user_path, class: "btn btn-red"
+      = link_to "Start now &raquo;".html_safe, '#userModal', class: "btn btn-red",
+        'data-toggle' => 'modal'
 
   .col-lg-4
     h2
