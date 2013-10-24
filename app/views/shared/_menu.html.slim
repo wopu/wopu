@@ -37,7 +37,7 @@
       ul class="nav navbar-nav navbar-right"
         li
           - if current_user
-            = link_to 'Sign out', sessions_path, method: :delete
+            = link_to 'Sign out', destroy_user_session_path, method: :delete
           /- else
             /= render 'sign_in'
       ul class="nav navbar-nav navbar-right"
