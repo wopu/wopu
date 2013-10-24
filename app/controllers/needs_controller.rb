@@ -50,7 +50,6 @@ class NeedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_need
       @need = Need.find(params[:id])
     end

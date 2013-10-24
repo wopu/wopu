@@ -43,12 +43,10 @@ class FoundationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_foundation
       @foundation = Foundation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def foundation_params
       #params.require(:foundation).permit(:name, :logo, :mission, :population,
        #:start_date, :category_id, :available_tag_ids, contact_info_attributes: [:email, :phone, :address,
