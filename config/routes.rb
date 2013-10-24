@@ -1,6 +1,6 @@
 Wopu::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
 
   resources :results
 
@@ -16,9 +16,6 @@ Wopu::Application.routes.draw do
   end
 
   resources :users
-
-  resources :sessions
-  delete 'sessions', to: 'sessions#destroy'
 
   resources :foundations do
     resources :needs do
