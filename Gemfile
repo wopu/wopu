@@ -28,8 +28,9 @@ group :development do
   gem 'pry-rails'
 end
 
+gem 'rspec-rails', group: [:development, :test]
+
 group :test do
-	gem 'rspec-rails'
 	gem 'mongoid-rspec'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
