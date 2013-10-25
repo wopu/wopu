@@ -28,19 +28,26 @@ group :development do
   gem 'pry-rails'
 end
 
+group :test do
+	gem 'rspec-rails'
+	gem 'mongoid-rspec'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'capybara-webkit', '~> 0.12.0'
+  gem 'launchy'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'capistrano', '~> 2.15'
+gem 'capistrano', '~> 2.15', group: :development
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
