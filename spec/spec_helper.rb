@@ -1,9 +1,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
-require 'capybara/rails'
-require 'capybara/rspec'
+require 'rspec/autorun' unless defined? Zeus
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,6 +27,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  # to use :js instead of :js => true in any test.
+  config.include Capybara::DSL
+  # to use :js instead of :js => true in a test.
   config.treat_symbols_as_metadata_keys_with_true_values = true
 end
