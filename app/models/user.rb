@@ -14,5 +14,5 @@ class User
 
   validates_presence_of :email, :password
 
-  def self.sign_in(params); where(params).first end
+  default_scope ->{ ne _type: :Admin }
 end
