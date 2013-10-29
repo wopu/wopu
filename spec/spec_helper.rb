@@ -30,4 +30,9 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   # to use :js instead of :js => true in a test.
   config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  # Clean up all collections before each spec runs.
+  config.before do
+    Mongoid.purge!
+  end
 end

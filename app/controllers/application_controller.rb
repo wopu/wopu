@@ -8,11 +8,4 @@ class ApplicationController < ActionController::Base
   end
   helper_method :admin?
 
-
-  # See https://github.com/plataformatec/devise/#strong-parameters
-  before_filter :configure_permitted_parameters, if: :devise_controller?
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) + [:name, :avatar]
-  end
-  protected :configure_permitted_parameters
 end
