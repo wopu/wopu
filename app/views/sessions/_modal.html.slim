@@ -8,10 +8,10 @@
         .modal-body
           .form-group
             p Email:
-            = f.text_field :email, class: 'form-control', id: 'sign_in_email'
+            = f.text_field :email, class: 'form-control'
           .form-group
             p Password:
-            = f.password_field :password, class: 'form-control', id: 'sign_in_password'
+            = f.password_field :password, class: 'form-control'
         .modal-footer
           button.btn.btn-default data-dismiss="modal" type="button" Close
           = f.submit 'Done', class: 'btn btn-primary'
