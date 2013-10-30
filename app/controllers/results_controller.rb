@@ -36,7 +36,6 @@ class ResultsController < ApplicationController
   def destroy
     @result.destroy
     redirect_to results_url
-    end
   end
 
   private
