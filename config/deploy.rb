@@ -31,7 +31,7 @@ require 'bundler/capistrano'
 ##                                         ##
 #############################################
 
-GITHUB_REPOSITORY_NAME = 'r13-team-135'
+GITHUB_REPOSITORY_NAME = 'wopu'
 LINODE_SERVER_HOSTNAME = '50.116.4.94'
 
 #############################################
@@ -66,7 +66,7 @@ ssh_options[:keys] = ["~/.ssh/id_rsa"]
 
 # SCM Options
 set :scm,        :git
-set :repository, "git@github.com:railsrumble/#{GITHUB_REPOSITORY_NAME}.git"
+set :repository, "git@github.com:icortex/#{GITHUB_REPOSITORY_NAME}.git"
 set :branch,     "master"
 
 # Roles
