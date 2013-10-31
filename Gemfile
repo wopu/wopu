@@ -26,6 +26,7 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'capistrano', '~> 2.15'
   gem 'capistrano-unicorn', :require => false
 end
 
@@ -48,7 +49,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'capistrano', '~> 2.15', group: :development
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
