@@ -28,6 +28,7 @@ group :development do
   gem 'pry-rails'
   gem 'capistrano', '~> 2.15'
   gem 'capistrano-unicorn', :require => false
+  gem "letter_opener"
 end
 
 group :development, :test do 
@@ -60,6 +61,5 @@ gem "mini_magick"
 gem "active_decorator"
 gem "faker"
 gem "devise"
-gem "letter_opener"
 gem "unicorn"
 
