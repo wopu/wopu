@@ -26,6 +26,7 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'capistrano-unicorn', :require => false
 end
 
 group :development, :test do 
@@ -60,3 +61,4 @@ gem "active_decorator"
 gem "faker"
 gem "devise"
 gem "letter_opener"
+
