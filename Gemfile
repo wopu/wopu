@@ -61,4 +61,5 @@ gem "active_decorator"
 gem "faker"
 gem "devise"
 gem "letter_opener"
+gem "unicorn"
 
