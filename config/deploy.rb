@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require 'capistrano-unicorn'
 
 # This capistrano deployment recipe is made to work with the optional
 # StackScript provided to all Rails Rumble teams in their Linode dashboard.
@@ -32,7 +33,7 @@ require 'bundler/capistrano'
 #############################################
 
 GITHUB_REPOSITORY_NAME = 'wopu'
-LINODE_SERVER_HOSTNAME = '50.116.4.94'
+SERVER_HOSTNAME = 'ec2-54-221-77-104.compute-1.amazonaws.com'
 
 #############################################
 #############################################
@@ -45,51 +46,46 @@ default_run_options[:pty] = true
 set :bundle_flags,               "--deployment"
 
 set :application,                "wopu"
-set :deploy_to,                  "/var/www/apps/wopu"
+set :deploy_to,                  "/opt/www/apps/wopu"
 set :normalize_asset_timestamps, false
 set :rails_env,                  "production"
 
-set :user,                       "root"
+set :user,                       "ubuntu"
 set :runner,                     "www-data"
-set :admin_runner,               "www-data"
+set :admin_runner,               "ubuntu"
 
 # Password-less Deploys (Optional)
 #
 # 1. Locate your local public SSH key file. (Usually ~/.ssh/id_rsa.pub)
 # 2. Execute the following locally: (You'll need your Linode server's root password.)
 #
-#    cat ~/.ssh/id_rsa.pub | ssh root@LINODE_SERVER_HOSTNAME "cat >> ~/.ssh/authorized_keys"
+#    cat ~/.ssh/id_rsa.pub | ssh root@SERVER_HOSTNAME "cat >> ~/.ssh/authorized_keys"
 #
 # 3. Uncomment the below ssh_options[:keys] line in this file.
 #
-ssh_options[:keys] = ["~/.ssh/id_rsa"]
+# Add more keys according developers keys paths
+ssh_options[:keys] = ["~/.ssh/wopu-aws.pem"]
 
 # SCM Options
 set :scm,        :git
-set :repository, "git@github.com:icortex/#{GITHUB_REPOSITORY_NAME}.git"
+set :repository, "git@github.com:wopu/#{GITHUB_REPOSITORY_NAME}.git"
 set :branch,     "master"
 
 # Roles
-role :app, LINODE_SERVER_HOSTNAME
-role :db,  LINODE_SERVER_HOSTNAME, :primary => true
+role :app, SERVER_HOSTNAME
+role :db,  SERVER_HOSTNAME, :primary => true
 
 # Add Configuration Files & Compile Assets
 after 'deploy:update_code' do
   # Setup Configuration
   run "cp #{shared_path}/config/mongoid.yml #{release_path}/config/mongoid.yml"
+  run "cp #{shared_path}/config/unicorn.rb #{release_path}/config/unicorn.rb"
 
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 
-# Restart Passenger
-deploy.task :restart, :roles => :app do
-  # Fix Permissions
-  sudo "chown -R www-data:www-data #{current_path}"
-  sudo "chown -R www-data:www-data #{latest_release}"
-  sudo "chown -R www-data:www-data #{shared_path}/bundle"
-  sudo "chown -R www-data:www-data #{shared_path}/log"
+after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
+#after 'deploy:restart', 'unicorn:restart'   # app preloaded
+#after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
 
-  # Restart Application
-  run "touch #{current_path}/tmp/restart.txt"
-end
