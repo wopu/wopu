@@ -45,3 +45,4 @@ gem "mini_magick"
 gem "active_decorator"
 gem "devise"
 gem "unicorn"
+gem 'fog'
