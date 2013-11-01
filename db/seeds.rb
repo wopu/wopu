@@ -6,23 +6,3 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-
-Mongoid.raise_not_found_error = false
-
-puts "Creating AvailableTags"
-%w( study food recreation ).each do |name|
-  unless AvailableTag.find_by name: name
-    AvailableTag.create name: name
-  end
-  print '.'
-end
-puts ''
-
-puts "Creating Categories"
-%w( Children Health Nutrition ).each do |name|
-  unless Category.find_by name: name
-    Category.create name: name
-  end
-  print '.'
-end
-puts ''
