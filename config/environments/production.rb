@@ -71,8 +71,8 @@ Wopu::Application.configure do
     :address => "smtp.mandrillapp.com",
     :port => 587,
     :authentication => :plain,
-    :user_name => 'ie.cortex@gmail.com',
-    :password => '0EJ1yrdnVE0r-gMrAfsjjQ'
+    :user_name => ENV['MANDRILL_USER'],
+    :password => ENV['MANDRILL_PASS']
   }
   
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
