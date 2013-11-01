@@ -1,10 +1,10 @@
 .row
   .col-lg-4
     h2
-      | I'm a foundation
+      | I'm a Nonprofit
     = image_tag 'home-foundation.png'
     p
-      | Create a foundation profile, tell everyone your mission and how can other people help you accomplish it.
+      | Create a Nonprofit profile, tell everyone your mission and how can other people help you accomplish it.
     p
       = link_to "Register &raquo;".html_safe, new_foundation_path, class: "btn btn-red"
 
@@ -13,17 +13,17 @@
       | I'm a hero
     = image_tag 'home-heros.png'
     p
-      | Are you looking for a way to help others? Browse foundations from all around the globe and take action.
+      | Are you looking for a way to help others? Browse Nonprofits from all around the globe and take action.
     p
       = link_to "Start now &raquo;".html_safe, '#userModal', class: "btn btn-red",
         'data-toggle' => 'modal'
 
   .col-lg-4
     h2
-      | I need help
+      | I can help
     = image_tag 'home-help.png'
     p
-      | Do you need help with a specific cause? Let everyone know about it, start spreading the word.
+      | Do you want to help and don't know whom? Let everyone know about it, start spreading the word.
     p
       a class="btn btn-red" href="#"
-        | Post help request &raquo;
+        | Post donation &raquo;
