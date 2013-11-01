@@ -1,7 +1,6 @@
 Wopu::Application.routes.draw do
 
   devise_for :users, controllers: {
-    confirmations: 'users/confirmations',
     registrations: 'users/registrations'
   }
 
