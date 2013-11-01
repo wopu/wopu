@@ -1,5 +1,6 @@
 require 'bundler/capistrano'
 require 'capistrano-unicorn'
+require "dotenv/capistrano"
 
 # You can configure your Rails
 # app to use this deployment recipe by doing the following:
