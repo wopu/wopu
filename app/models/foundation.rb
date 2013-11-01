@@ -25,7 +25,6 @@ class Foundation
   accepts_nested_attributes_for :user
 
   validates_presence_of :name
-  validates_associated :user
 
   attr_accessor :available_tag_ids
 

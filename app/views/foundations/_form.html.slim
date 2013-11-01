@@ -46,7 +46,7 @@
       label Address:
       = builder.text_field :address, class: 'form-control'
 
-  - unless @foundation.persisted?
+  - unless @foundation.persisted? || current_user
     h2 Credentials
     = f.fields_for :user do |fb|
       .form-group

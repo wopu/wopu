@@ -20,6 +20,7 @@ class FoundationsController < ApplicationController
 
   def create
     @foundation = Foundation.new(foundation_params)
+    @foundation.user = current_user if current_user
 
     if @foundation.save
       redirect_to @foundation, notice: 'Foundation was successfully created.'
