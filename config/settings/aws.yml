@@ -1,6 +1,6 @@
 default:
-  access_key_id: 'perro'
-  secret_access_key: 'perro'
+  access_key_id: <%= ENV['AWS_ACCESS_KEY'] %>
+  secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
   fog_storage_enabled: false
 
 production:

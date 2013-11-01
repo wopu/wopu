@@ -47,3 +47,4 @@ gem "devise"
 gem "unicorn"
 gem 'fog'
 gem 'global'
+gem 'dotenv-rails'

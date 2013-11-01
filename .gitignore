@@ -16,3 +16,4 @@
 /tmp
 /config/mongoid.yml
 /public/uploads/*
+.env
