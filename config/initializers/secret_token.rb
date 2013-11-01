@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Wopu::Application.config.secret_key_base = '2e849dae1587214da69979d1339dcf099e5f4ed2c2800f7dfb5aa7648798569e8c083a72671145f2c1fb3740c643deffe76ccbedfa91e43738d7f17614e32cd5'
+Wopu::Application.config.secret_key_base = ENV['SECRET_TOKEN']
