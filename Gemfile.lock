@@ -106,6 +106,8 @@ GEM
       nokogiri (~> 1.5)
       ruby-hmac
     formatador (0.2.4)
+    global (0.0.2)
+      activesupport
     highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.5)
@@ -267,6 +269,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   fog
+  global
   jbuilder (~> 1.2)
   jquery-rails
   launchy

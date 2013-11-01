@@ -46,3 +46,4 @@ gem "active_decorator"
 gem "devise"
 gem "unicorn"
 gem 'fog'
+gem 'global'

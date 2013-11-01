@@ -1,0 +1,7 @@
+default:
+  access_key_id: 'perro'
+  secret_access_key: 'perro'
+  fog_storage_enabled: false
+
+production:
+  fog_storage_enabled: true
