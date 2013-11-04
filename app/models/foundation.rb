@@ -2,6 +2,7 @@ class Foundation
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Attributes::Dynamic
+  include Search
 
   field :name
   field :mission
