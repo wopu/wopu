@@ -5,6 +5,8 @@ module Search
 
   module ClassMethods
 
+    # SomeModel.search( l: 2, k: 3, j: :things)
+    # will return SomeModel.limit(2).skip(3).joins(:things)
     def search(params)
       chain = self
       { select: :s, joins: :j, where: :w, skip: :k, limit: :l }.each do |k, v|
