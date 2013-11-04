@@ -3,7 +3,15 @@ class FoundationsController < ApplicationController
 
   def index
     @my_foundations = current_user.try(:foundations) || []
-    @others_foundations = Foundation.others(current_user)
+    if @my_foundations.any? and params[:my_q]
+      @my_foundations = @my_foundations.search(params[:my_q])
+    end
+
+    @others_foundations = Foundation.others(current_user) || []
+    if @others_foundations.any? and params[:others_q]
+      @others_foundations = @others_foundations.search(params[:others_q])
+    end
+
   end
 
   def show
