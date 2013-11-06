@@ -3,8 +3,8 @@
     span.glyphicon.glyphicon-plus
     | New Nonprofit
   == render partial: 'index',
-    locals: { foundations: @my_foundations, title: 'My Foundations' }
+    locals: { foundations: @my_foundations, title: 'My Nonprofits' }
   == render partial: 'index',
-    locals: { foundations: @others_foundations, title: 'Others Foundations' }
+    locals: { foundations: @others_foundations, title: 'Others Nonprofits' }
 - else
   == render partial: 'index',locals: { foundations: @others_foundations }
