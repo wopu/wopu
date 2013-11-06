@@ -7,6 +7,6 @@ h1 Available Donations
   | Heroes can suggest donations! Coming soon...
 
 - @available_helps.each do |help|
-  = help.helper.name
+  = help.helper.try(:name)
   = help.description
   = link_to 'Request this donation', '#'
