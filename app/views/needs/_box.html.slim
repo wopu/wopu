@@ -26,7 +26,7 @@
       | Heroes helping for this cause
     - need.helps.pending.each do |help|
       strong
-        = help.helper.name
+        = help.helper.try :name
       br
       = help.description
       br
