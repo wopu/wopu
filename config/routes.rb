@@ -27,7 +27,6 @@ Wopu::Application.routes.draw do
   end
 
   get 'admin' => 'admin#index'
-  get 'about' => 'home#about'
 
   root 'home#index'
 end
